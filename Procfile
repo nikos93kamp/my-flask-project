@@ -1,1 +1,1 @@
-web: gunicorn flask_project.wsgi
+web: gunicorn run:app
