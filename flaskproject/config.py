@@ -1,4 +1,5 @@
 import os
+import flask_heroku
 
 
 class Config:
@@ -12,3 +13,5 @@ class Config:
 
     DEBUG = True
     ALLOWED_HOSTS = ['myflaskapp3.herokuapp.com']
+
+    flask_heroku.settings(locals())
