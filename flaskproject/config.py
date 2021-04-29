@@ -1,10 +1,9 @@
 import os
-import flask_heroku
 
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY_2')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -13,5 +12,3 @@ class Config:
 
     DEBUG = True
     ALLOWED_HOSTS = ['myflaskapp3.herokuapp.com']
-
-    flask_heroku.settings(locals())
