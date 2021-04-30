@@ -9,14 +9,15 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+    DEBUG = True
 
     ENV = 'dev'
 
     if ENV == 'dev':
-        DEBUG = True
+        DEBUG == os.environ.get('DEBUG_VALUE')
         SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     else:
-        DEBUG = False
+        DEBUG != os.environ.get('DEBUG_VALUE')
         SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
