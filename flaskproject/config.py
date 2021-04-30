@@ -10,5 +10,13 @@ class Config:
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-    DEBUG = True
-    ALLOWED_HOSTS = ['myflaskapp3.herokuapp.com']
+    ENV = 'dev'
+
+    if ENV == 'dev':
+        DEBUG = True
+        SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    else:
+        DEBUG = False
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
